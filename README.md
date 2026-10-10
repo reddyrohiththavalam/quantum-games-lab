@@ -80,6 +80,12 @@ Use the following settings when creating a deployment:
 Ensure that `quantum-circuit-puzzle/requirements.txt` contains the dependencies required by this application.
 
 ---
+## 🚀 Live Demo
+
+**Quantum Circuit Puzzle Lab:** [Play Online](https://quantum-games-lab-fxyurfskfyfukngxicibys.streamlit.app/)
+
+**Quantum Minesweeper:** Deployment pending verification.
+
 
 ## Project 2: Quantum Minesweeper — The Superposition Challenge
 
