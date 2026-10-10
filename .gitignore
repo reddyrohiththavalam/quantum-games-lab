@@ -11,3 +11,26 @@ venv/
 !.env.example
 .DS_Store
 Thumbs.db
+# Local Git metadata backup
+quantum-minesweeper-git-backup/
+
+# Python virtual environments
+.venv/
+venv/
+**/.venv/
+**/venv/
+
+# Python cache and test files
+**/__pycache__/
+*.py[cod]
+**/.pytest_cache/
+
+# Secrets and local environment files
+.env
+.env.*
+!.env.example
+**/.streamlit/secrets.toml
+
+# OS files
+.DS_Store
+Thumbs.db
