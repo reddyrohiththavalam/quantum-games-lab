@@ -1,606 +1,351 @@
-\# Quantum Games Lab
+# Quantum Games Lab
 
+### Qiskit Fall Fest 2026 — IIIT Kottayam Quantum Hackathon
 
+**Track 1: Quantum Games & Interactive Puzzles**
 
-\### Qiskit Fall Fest 2026 — IIIT Kottayam Quantum Hackathon
+---
 
-
-
-\*\*Track 1: Quantum Games \& Interactive Puzzles\*\*
-
-
-
-\---
-
-
-
-\## Project Overview
-
-
+## Project Overview
 
 Quantum Games Lab is a collection of interactive educational games designed to introduce quantum computing concepts through familiar puzzles and hands-on experimentation.
 
+This repository contains two Python-based Streamlit applications:
 
+1. **Quantum Circuit Puzzle Lab** — an interactive learning game for exploring quantum gates, circuits, and measurement behavior.
+2. **Quantum Minesweeper: The Superposition Challenge** — a Minesweeper-inspired game that uses Qiskit quantum-circuit simulation to generate a hidden minefield.
 
-This repository contains two projects:
+Both projects combine interactive gameplay with educational explanations of quantum computing concepts.
 
+## Project Metadata
 
+* **Project Title:** Quantum Games Lab
+* **Featured Game:** Quantum Minesweeper: The Superposition Challenge
+* **Team Name:** Quantum Minesweepers
+* **Hackathon Track:** Track 1 — Quantum Games & Interactive Puzzles
+* **Team Size:** 1 member currently listed
+* **Video Presentation:** To be added after recording
+* **Live Demo Timestamp:** To be added after recording
 
-1\. \*\*Quantum Circuit Puzzle Lab\*\* — an interactive game for learning quantum gates and circuit behavior.
-
-2\. \*\*Quantum Minesweeper: The Superposition Challenge\*\* — a Minesweeper-inspired game that uses Qiskit quantum-circuit simulation to generate a hidden minefield.
-
-
-
-Both projects combine Python-based development with interactive learning experiences to help users explore quantum computing concepts.
-
-
-
-\## Project Metadata
-
-
-
-\* \*\*Project Title:\*\* Quantum Games Lab
-
-\* \*\*Featured Game:\*\* Quantum Minesweeper: The Superposition Challenge
-
-\* \*\*Team Name:\*\* Quantum Minesweepers
-
-\* \*\*Chosen Track:\*\* Track 1 — Quantum Games \& Interactive Puzzles
-
-\* \*\*Team Size:\*\* 1 member currently listed
-
-\* \*\*Video Presentation:\*\* To be added after recording
-
-\* \*\*Live Demo Timestamp:\*\* To be added after recording
-
-
-
-\### Team Members
-
-
+### Team Member
 
 | Name                  | Email                                                                 | GitHub                                                         |
-
 | --------------------- | --------------------------------------------------------------------- | -------------------------------------------------------------- |
+| Thavalam Reddy Rohith | [reddyrohiththavalam@gmail.com](mailto:reddyrohiththavalam@gmail.com) | [@reddyrohiththavalam](https://github.com/reddyrohiththavalam) |
 
-| Thavalam Reddy Rohith | \[reddyrohiththavalam@gmail.com](mailto:reddyrohiththavalam@gmail.com) | \[@reddyrohiththavalam](https://github.com/reddyrohiththavalam) |
+---
 
+## Project 1: Quantum Circuit Puzzle Lab
 
-
-\---
-
-
-
-\## Project 1: Quantum Circuit Puzzle Lab
-
-
-
-\### Overview
-
-
+### Overview
 
 Quantum Circuit Puzzle Lab is an interactive Streamlit application that introduces users to quantum gates and simple quantum circuits through hands-on challenges.
 
+### Features
 
+* Ten configured learning levels.
+* Visualization of one-qubit quantum circuits.
+* Experiments using X, H, and Z gates.
+* Quantum circuit simulation using Qiskit Aer.
+* Interactive exploration of quantum behavior.
 
-\### Features
+### Technologies
 
+* Python
+* Streamlit
+* Qiskit
+* Qiskit Aer
+* NumPy
 
+### Run Locally
 
-\* Ten configured learning levels.
-
-\* Visualization of one-qubit quantum circuits.
-
-\* Experiments using X, H, and Z gates.
-
-\* Quantum circuit simulation using Qiskit Aer.
-
-\* Interactive interface for exploring quantum behavior.
-
-
-
-\### Technologies
-
-
-
-\* Python
-
-\* Streamlit
-
-\* Qiskit
-
-\* Qiskit Aer
-
-\* NumPy
-
-
-
-\### How to Run
-
-
-
-From the repository root, run:
-
-
+From the repository root, open PowerShell and run:
 
 ```powershell
-
 cd quantum-circuit-puzzle
-
 python -m pip install -r requirements.txt
-
 python -m streamlit run app.py
-
 ```
 
+Streamlit will display a local URL, usually `http://localhost:8501`.
 
+### Streamlit Cloud Deployment
 
-Open the local URL displayed in the terminal, usually `http://localhost:8501`.
+Use the following settings when creating a deployment:
 
+* **Repository:** `reddyrohiththavalam/quantum-games-lab`
+* **Branch:** `main`
+* **Main file path:** `quantum-circuit-puzzle/app.py`
 
+Ensure that `quantum-circuit-puzzle/requirements.txt` contains the dependencies required by this application.
 
-\---
+---
 
+## Project 2: Quantum Minesweeper — The Superposition Challenge
 
+### Overview
 
-\## Project 2: Quantum Minesweeper — The Superposition Challenge
+Quantum Minesweeper is a 3 × 3 Minesweeper-inspired game that uses Qiskit to generate a hidden board through quantum measurement.
 
+The application prepares nine qubits, applies probability-controlled RY rotation gates, and measures the qubits to produce classical outcomes. These outcomes determine which tiles contain mines. Players reveal tiles and use neighboring mine counts as clues.
 
+The game combines quantum-circuit simulation, classical game logic, and an interactive Streamlit interface.
 
-\### Overview
+### Motivation
 
+Minesweeper is a familiar puzzle based on uncertainty, logical reasoning, and decision-making. Integrating a quantum circuit offers a practical way to explore qubits, state preparation, measurement, and probability through an accessible game.
 
+### Quantum Architecture
 
-Quantum Minesweeper is a 3×3 Minesweeper-inspired game that uses Qiskit to generate a hidden board through quantum measurement.
+The application demonstrates the following concepts:
 
+* **Qubits:** Nine qubits represent the nine board positions.
+* **State preparation:** RY rotation gates prepare qubits in probabilistic quantum states.
+* **Measurement:** Each qubit is measured to obtain a classical bit.
+* **Measurement probability:** The rotation angle controls the probability of measuring `1`.
+* **Classical post-processing:** Python maps the measurement outcomes to board tiles and calculates neighboring mine counts.
 
+### Circuit Details
 
-The game prepares nine qubits, applies probability-controlled RY rotation gates, and measures each qubit to determine whether its corresponding tile contains a mine. Players reveal tiles and use neighboring mine counts as clues to explore the board.
+| Property              | Description                     |
+| --------------------- | ------------------------------- |
+| Board size            | 3 × 3                           |
+| Number of qubits      | 9                               |
+| Rotation gate         | RY                              |
+| Measurement           | Computational-basis measurement |
+| Simulator             | Qiskit Aer                      |
+| Application framework | Streamlit                       |
+| Other technologies    | Python, NumPy, Matplotlib       |
 
-
-
-The project combines quantum circuit simulation, classical game logic, and an interactive Streamlit interface to demonstrate quantum measurement and probability.
-
-
-
-\### Motivation
-
-
-
-Minesweeper is a familiar puzzle involving uncertainty, logical reasoning, and decision-making. Integrating a quantum circuit provides a practical way to explore qubits, quantum gates, measurement, and probability in an accessible game environment.
-
-
-
-\### Quantum Architecture
-
-
-
-\*\*Core concepts:\*\*
-
-
-
-\* \*\*Qubit superposition:\*\* RY rotation gates prepare qubits in probabilistic quantum states.
-
-\* \*\*Quantum measurement:\*\* Each measured qubit produces a classical bit.
-
-\* \*\*Measurement probability:\*\* The rotation angle controls the probability of measuring `1`.
-
-\* \*\*Classical post-processing:\*\* Python converts the measured outcomes into a game board and calculates neighboring mine counts.
-
-
-
-\### Circuit Details
-
-
-
-\* \*\*Board size:\*\* 3 × 3
-
-\* \*\*Number of qubits:\*\* 9
-
-\* \*\*Gates:\*\* RY rotation gates
-
-\* \*\*Measurement:\*\* Computational-basis measurement
-
-\* \*\*Simulator:\*\* Qiskit Aer
-
-\* \*\*Other technologies:\*\* Python, Streamlit, NumPy, Matplotlib, and Jupyter Notebook
-
-
-
-For a mine probability \\(p\\), the rotation angle is:
-
-
+For a desired mine probability \(p\), the RY rotation angle is:
 
 $$
-
-\\theta = 2\\arcsin(\\sqrt{p})
-
+\theta = 2\arcsin(\sqrt{p})
 $$
 
-
-
-An illustrative circuit preparation is:
-
-
+An illustrative circuit is shown below:
 
 ```python
-
 from math import asin, sqrt
-
 from qiskit import QuantumCircuit
 
+n_qubits = 9
+mine_probability = 0.25
+theta = 2 * asin(sqrt(mine_probability))
 
+qc = QuantumCircuit(n_qubits, n_qubits)
 
-n\_qubits = 9
+for qubit in range(n_qubits):
+    qc.ry(theta, qubit)
 
-mine\_probability = 0.25
-
-theta = 2 \* asin(sqrt(mine\_probability))
-
-
-
-qc = QuantumCircuit(n\_qubits, n\_qubits)
-
-
-
-for qubit in range(n\_qubits):
-
-&#x20;   qc.ry(theta, qubit)
-
-
-
-qc.measure(range(n\_qubits), range(n\_qubits))
-
+qc.measure(range(n_qubits), range(n_qubits))
 ```
 
+This example illustrates the circuit preparation. Refer to the actual application source code for the complete runnable implementation.
 
+### Run Locally
 
-This is a representative example of the circuit approach. Refer to the project's source code and notebook for the runnable implementation.
-
-
-
-\### How to Run
-
-
-
-From the repository root:
-
-
+From the repository root, open PowerShell and run:
 
 ```powershell
-
 cd quantum-minesweeper-qiskit
-
 python -m pip install -r requirements.txt
-
-python -m pip install streamlit
-
 python -m streamlit run src/app.py
-
 ```
 
+Streamlit will display a local URL, usually `http://localhost:8501`.
 
+If the project dependencies do not include Streamlit, add it to this project's `requirements.txt` before installing.
 
-Open the local URL displayed in the terminal, usually `http://localhost:8501`.
+### Streamlit Cloud Deployment
 
+Use the following settings for the Minesweeper deployment:
 
+* **Repository:** `reddyrohiththavalam/quantum-games-lab`
+* **Branch:** `main`
+* **Main file path:** `quantum-minesweeper-qiskit/src/app.py`
 
-To explore the experiment notebook:
+The Minesweeper application has its own dependency file:
 
+`quantum-minesweeper-qiskit/requirements.txt`
 
+Ensure this file is committed to GitHub and contains compatible versions of Streamlit, Qiskit, Qiskit Aer, and the other packages imported by the application.
+
+**Important:** The dependency file must be located inside `quantum-minesweeper-qiskit/` for this deployment configuration. Verify the installation logs after deploying to confirm that Qiskit is installed successfully.
+
+### Explore the Notebook
+
+If the repository includes `notebooks/solution.ipynb`, you can explore it locally using:
 
 ```powershell
-
 python -m pip install jupyter
-
 python -m jupyter notebook notebooks/solution.ipynb
-
 ```
 
+Run these commands from the `quantum-minesweeper-qiskit` directory.
 
+---
 
-Follow the individual project's README if its installation or execution instructions differ from these commands.
+## Repository Structure
 
-
-
-\---
-
-
-
-\## Repository Structure
-
-
+The combined repository is organized as follows:
 
 ```text
-
-quantum/
-
+quantum-games-lab/
 ├── README.md
-
 ├── .gitignore
-
+│
 ├── quantum-circuit-puzzle/
-
 │   ├── app.py
-
 │   ├── requirements.txt
-
 │   ├── README.md
-
 │   ├── tests/
-
 │   └── screenshots/
-
+│
 └── quantum-minesweeper-qiskit/
-
-&#x20;   ├── README.md
-
-&#x20;   ├── requirements.txt
-
-&#x20;   ├── HACKATHON\_GUIDE.md
-
-&#x20;   ├── LICENSE
-
-&#x20;   ├── view.pdf
-
-&#x20;   ├── src/
-
-&#x20;   ├── notebooks/
-
-&#x20;   └── references/
-
+    ├── README.md
+    ├── requirements.txt
+    ├── runtime.txt
+    ├── HACKATHON_GUIDE.md
+    ├── LICENSE
+    ├── view.pdf
+    ├── src/
+    │   └── app.py
+    ├── notebooks/
+    └── references/
 ```
 
+This is the intended structure. Keep only the files and folders that actually exist in your repository, and update this section if the project structure changes.
 
+---
 
-This structure describes the intended combined repository. Some files or folders may change as development continues.
+## Gameplay and Demonstration
 
+### Quantum Circuit Puzzle Lab
 
+1. Launch the Streamlit application.
+2. Select a learning level.
+3. Experiment with the available quantum gates.
+4. Inspect the circuit and simulated behavior.
+5. Complete the configured challenges.
 
-\---
+### Quantum Minesweeper
 
+1. Launch the Streamlit application.
+2. Choose the desired mine probability, if supported by the interface.
+3. Generate a new board.
+4. Prepare and measure the quantum circuit using the simulator.
+5. Map the measurement outcomes to mine and safe tiles.
+6. Reveal tiles and examine neighboring mine-count clues.
+7. Generate another board to obtain a new set of measurement outcomes.
+8. Explore the notebook, if available, to inspect the circuit and experiment with simulation statistics.
 
+The steps above describe the intended gameplay flow. Confirm each feature against the actual implementation before using it in a recorded demonstration.
 
-\## Gameplay and Demonstration
+---
 
-
-
-\### Quantum Circuit Puzzle Lab
-
-
-
-1\. Launch the Streamlit application.
-
-2\. Select a learning level.
-
-3\. Experiment with available quantum gates.
-
-4\. Inspect the circuit and simulated behavior.
-
-5\. Complete the configured challenges.
-
-
-
-\### Quantum Minesweeper
-
-
-
-1\. Launch the Streamlit application.
-
-2\. Choose the desired mine probability.
-
-3\. Generate a new quantum board.
-
-4\. Prepare and measure the nine-qubit circuit using the simulator.
-
-5\. Map the measured bits to mine and safe tiles.
-
-6\. Reveal tiles and examine neighboring mine-count clues.
-
-7\. Generate another board to obtain a new set of measurement outcomes.
-
-8\. Use the notebook to inspect the circuit and compare simulation statistics with a classical baseline.
-
-
-
-\### Screenshots and Video
-
-
+## Screenshots and Video
 
 Add genuine project evidence before final submission:
 
+* Screenshot of Quantum Circuit Puzzle Lab running.
+* Screenshot of the Minesweeper board before revealing tiles.
+* Screenshot showing revealed tiles and neighboring mine-count clues.
+* Screenshot of the quantum circuit or notebook visualization.
+* Video presentation link.
+* Live demo timestamp, if required by the hackathon.
 
+Only include screenshots, videos, and experimental results obtained from the actual implementation.
 
-\* Screenshot of Quantum Circuit Puzzle Lab running.
+---
 
-\* Screenshot of the Minesweeper board before revealing tiles.
+## Classical vs. Quantum Comparison
 
-\* Screenshot of revealed tiles and neighboring mine counts.
+For the described Quantum Minesweeper model, a classical baseline can independently assign a mine to each tile with probability \(p\).
 
-\* Screenshot of the quantum circuit or notebook visualization.
+The quantum circuit applies RY rotations chosen so that each qubit has probability \(p\) of producing the designated mine outcome. For independently prepared qubits, ideal measurements reproduce the corresponding independent Bernoulli probability model.
 
-\* Video presentation link and live demo timestamp.
+This makes the circuit a useful educational demonstration of quantum state preparation and measurement. It does **not** establish a quantum speedup or gameplay advantage over classical random sampling.
 
+---
 
+## Results and Limitations
 
-Only include screenshots and experimental results obtained from the actual implementation.
+### Project Highlights
 
+* Two interactive quantum-learning games.
+* Quantum gate and circuit exploration.
+* Nine-qubit board generation in Quantum Minesweeper.
+* Measurement outcomes mapped to a playable grid.
+* Classical logic for neighboring mine counts.
+* Notebook-based circuit exploration, if included in the implementation.
 
+### Limitations
 
-\---
-
-
-
-\## Classical vs. Quantum Comparison
-
-
-
-For Quantum Minesweeper, the classical baseline assigns each tile a mine independently with probability \\(p\\).
-
-
-
-The quantum circuit uses RY rotations chosen so that the probability of measuring `1` is \\(p\\). For independently prepared qubits, the ideal measurement distribution matches the corresponding classical independent Bernoulli model.
-
-
-
-The quantum implementation demonstrates circuit-based sampling, but it does not establish a quantum speedup or gameplay advantage over classical random sampling. Its main purpose is educational: making quantum state preparation and measurement easier to explore through a familiar puzzle.
-
-
-
-\---
-
-
-
-\## Results and Limitations
-
-
-
-\### Project Highlights
-
-
-
-\* Interactive quantum-learning experiences.
-
-\* Quantum gates and circuit visualization.
-
-\* Nine-qubit board generation in Quantum Minesweeper.
-
-\* Measurement outcomes converted into a playable grid.
-
-\* Classical game logic for neighboring mine counts.
-
-\* An experiment notebook for circuit inspection and statistical comparison.
-
-
-
-\### Limitations
-
-
-
-\* Quantum Minesweeper uses a small nine-qubit board.
-
-\* The described circuit prepares independent qubits and does not use entanglement to solve the puzzle.
-
-\* Qiskit Aer simulation runs on classical computing hardware.
-
-\* Finite measurement shots introduce statistical variation.
-
-\* The game does not demonstrate quantum advantage.
-
-\* Neighboring mine-count calculations and gameplay rules are classical.
-
-\* Larger boards would require additional qubits and more complex application logic.
-
-\* Real quantum hardware can introduce gate errors, readout errors, and decoherence.
-
-
+* Quantum Minesweeper uses a small nine-qubit board.
+* The described circuit prepares independent qubits rather than using entanglement to solve the puzzle.
+* Qiskit Aer simulation runs on classical computing hardware.
+* Finite measurement shots can introduce statistical variation.
+* The project does not demonstrate quantum advantage.
+* Neighboring mine-count calculations and gameplay rules are classical.
+* Larger boards would require additional qubits and more application logic.
+* Real quantum hardware can introduce gate errors, readout errors, and decoherence.
 
 Any numerical performance claims or experimental conclusions should be added only after running the corresponding tests and experiments.
 
+---
 
-
-\---
-
-
-
-\## Testing
-
-
+## Testing
 
 Quantum Circuit Puzzle Lab includes a test suite. From the repository root, run:
 
-
-
 ```powershell
-
 python -m unittest discover -s quantum-circuit-puzzle/tests -v
-
 ```
-
-
 
 Review the test output and resolve failures before presenting the project.
 
+For Quantum Minesweeper, follow any testing or experiment instructions documented in its project files.
 
+---
 
-For Quantum Minesweeper, follow any test or experiment instructions documented in its own project files.
+## Installation Requirements
 
+* Python version compatible with the selected project dependencies.
+* pip.
+* A modern web browser.
+* Git.
+* Jupyter Notebook, if you want to explore the experiment notebook.
 
+Install dependencies separately using each project's `requirements.txt` file. If both applications share a Python environment, check that their dependency versions are compatible.
 
-\---
+---
 
+## References
 
+* [Qiskit Documentation](https://docs.quantum.ibm.com/)
+* [Qiskit Aer](https://github.com/Qiskit/qiskit-aer)
+* [Streamlit Documentation](https://docs.streamlit.io/)
+* [NumPy Documentation](https://numpy.org/doc/)
+* [Matplotlib Documentation](https://matplotlib.org/stable/)
+* [Qiskit Fall Fest 2026 — IIIT Kottayam Hackathon Template](https://github.com/Shanwis/Qiskit-Fall-Fest-2026-IIITKottayam-Hackathon-Template)
 
-\## Installation Requirements
+---
 
+## Acknowledgments
 
+This project is intended for educational exploration of quantum computing through interactive games.
 
-\* Python compatible with the dependencies specified by each project.
+AI assistance was used during development. The project author is responsible for reviewing, understanding, testing, and presenting the implementation.
 
-\* pip.
+Additional contributors, resources, and collaborators should be acknowledged before final submission.
 
-\* A modern web browser for Streamlit applications.
+## License
 
-\* Git for repository management.
+Review the license and reuse conditions of both individual projects before redistributing the combined repository. Preserve applicable copyright notices and license terms.
 
-\* Jupyter Notebook for notebook-based experiments.
+---
 
+**Quantum Games Lab**
 
-
-Install dependencies separately using each project's `requirements.txt` file. If using one virtual environment for both games, verify that their dependency versions are compatible.
-
-
-
-\---
-
-
-
-\## References
-
-
-
-\* \[Qiskit Documentation](https://docs.quantum.ibm.com/)
-
-\* \[Qiskit Aer](https://github.com/Qiskit/qiskit-aer)
-
-\* \[Streamlit Documentation](https://docs.streamlit.io/)
-
-\* \[NumPy Documentation](https://numpy.org/doc/)
-
-\* \[Matplotlib Documentation](https://matplotlib.org/stable/)
-
-\* \[Qiskit Fall Fest 2026 — IIIT Kottayam Hackathon Template](https://github.com/Shanwis/Qiskit-Fall-Fest-2026-IIITKottayam-Hackathon-Template)
-
-
-
-\## Acknowledgments
-
-
-
-This project is intended for educational exploration of quantum computing through interactive games. AI assistance was used during development; the project author is responsible for reviewing, understanding, testing, and presenting the implementation.
-
-
-
-Any additional contributors, resources, or collaborators should be acknowledged before final submission.
-
-
-
-\## License
-
-
-
-Review the license and reuse conditions of both individual projects before redistributing the combined repository. Preserve the applicable copyright and license notices.
-
-
-
-\---
-
-
-
-\*\*Quantum Games Lab\*\*
-
-\*Explore quantum gates. Experiment with measurement. Learn through play.\*
-
-
-
+*Explore quantum gates. Experiment with measurement. Learn through play.*
